@@ -15,9 +15,9 @@ const sanitizeNote = note => ({
 })
 
 notesRouter
-    .route('/')
+    .route('/note')
     .get((req, res, next) => {
-        notesService.getAllnotes(
+        NotesService.getAllnotes(
             req.app.get('db')
         )
         .then(notes => {
@@ -27,7 +27,7 @@ notesRouter
     })
 
 notesRouter
-    .route('/notes/addNote')
+    .route('/note/addNote')
     .post(jsonParser, (req, res, next) => {
         const { note_name, content, modified, folder } = req.body
         const newNote = { note_name, modified, folder }
