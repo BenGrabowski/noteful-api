@@ -12,7 +12,7 @@ const sanitizeFolder = folder => ({
 })
 
 foldersRouter
-    .route('/folder')
+    .route('/folders')
     .get((req, res, next) => {
         FoldersService.getAllFolders(
             req.app.get('db')
@@ -24,7 +24,7 @@ foldersRouter
     })
 
 foldersRouter
-    .route('/folder/addFolder')
+    .route('/folders/addFolder')
     .post(jsonParser, (req, res, next) => {
         const { folder_name } = req.body
         const newFolder = {folder_name}
@@ -50,7 +50,7 @@ foldersRouter
 
 
 foldersRouter
-    .route('/folder/:folder_id')
+    .route('/folders/:folder_id')
     .all((req, res, next) => {
         FoldersService.getById(
             req.app.get('db'),
