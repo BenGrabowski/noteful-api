@@ -46,7 +46,7 @@ notesRouter
         )
             .then(note => {
                 res
-                    .status(204)
+                    .status(201)
                     .location(path.posix.join(req.originalUrl, `/${note.id}`))
                     .json(sanitizeNote(note))
             })
